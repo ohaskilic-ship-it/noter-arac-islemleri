@@ -17,7 +17,7 @@ DATA_DIR = Path(__file__).parent / "data"
 CSV_PRIMARY = DATA_DIR / "kasko_guncel.csv"
 CSV_PATTERN = str(DATA_DIR / "kasko_guncel*.csv")
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
-APP_VERSION = "3.1.1-vercel-hotfix"
+APP_VERSION = "3.2-seo"
 
 FEE_CONFIG = {
     "year": 2026,
@@ -1534,7 +1534,7 @@ def process_search(message, incoming_state):
 def robots_txt():
     content = """User-agent: *
 Allow: /
-Sitemap: https://kasko-ai.vercel.app/sitemap.xml
+Sitemap: https://noter-arac-islemleri.vercel.app/sitemap.xml
 """
     return Response(content, mimetype="text/plain")
 
@@ -1544,17 +1544,17 @@ def sitemap_xml():
     content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kasko-ai.vercel.app/</loc>
+    <loc>https://noter-arac-islemleri.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kasko-ai.vercel.app/satis</loc>
+    <loc>https://noter-arac-islemleri.vercel.app/satis</loc>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kasko-ai.vercel.app/kasko</loc>
+    <loc>https://noter-arac-islemleri.vercel.app/kasko</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

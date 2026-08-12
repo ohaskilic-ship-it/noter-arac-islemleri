@@ -1,4 +1,4 @@
-# Noter Araç İşlemleri — FINAL 3.1
+# Noter Araç İşlemleri — FINAL 3.2 SEO
 
 Tek Vercel projesi içinde iki araç:
 
@@ -54,3 +54,21 @@ Google Search Console doğrulama etiketi korunmuştur.
 - Mobil modal ve seçili kasko bilgi kartı iyileştirildi.
 - Hareket azaltma tercihi olan cihazlar için erişilebilirlik desteği eklendi.
 - Aylık güncellemede öncelik artık `data/kasko_guncel.csv` sabit dosya adındadır. Bu dosya yoksa eski `kasko_guncel*.csv` yöntemi yedek olarak çalışır.
+
+
+## FINAL 3.2 SEO
+
+Canlı alan adı:
+`https://noter-arac-islemleri.vercel.app/`
+
+SEO düzenlemeleri:
+- Ana sayfa, satış ve kasko sayfası için birbirinden farklı title ve meta description.
+- Tüm canonical URL'ler yeni canlı alan adına taşındı.
+- Open Graph ve Twitter paylaşım meta etiketleri tamamlandı.
+- WebSite / WebApplication JSON-LD yapılandırılmış verileri eklendi.
+- robots.txt içindeki sitemap adresi yeni alan adına taşındı.
+- sitemap.xml içinde `/`, `/satis`, `/kasko` canonical adresleri bulunuyor.
+- Google Search Console HTML doğrulama etiketi mevcut projeden korunmuştur. Yeni mülk doğrulamasında Google farklı bir etiket verirse ilgili meta etiketini değiştirmek yeterlidir.
+
+Search Console'a gönderilecek sitemap:
+`https://noter-arac-islemleri.vercel.app/sitemap.xml`
