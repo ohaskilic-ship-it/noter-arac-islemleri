@@ -17,7 +17,7 @@ DATA_DIR = Path(__file__).parent / "data"
 CSV_PRIMARY = DATA_DIR / "kasko_guncel.csv"
 CSV_PATTERN = str(DATA_DIR / "kasko_guncel*.csv")
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
-APP_VERSION = "3.1-polish"
+APP_VERSION = "3.1.1-vercel-hotfix"
 
 FEE_CONFIG = {
     "year": 2026,
@@ -96,7 +96,7 @@ def load_csv():
 
     df = data
     brands = sorted(df["_brand_norm"].dropna().unique().tolist())
-    return Path(files[0]).name
+    return Path(active_file).name
 
 
 ACTIVE_CSV = load_csv()
