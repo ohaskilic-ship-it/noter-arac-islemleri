@@ -1,0 +1,6 @@
+Flask>=3.1,<4
+gunicorn>=23,<24
+pandas>=2.2,<3
+rapidfuzz>=3.13,<4
+google-genai>=1.30,<2
+pydantic>=2.10,<3

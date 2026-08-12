@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <title>KaskoAI | Yapay Zekâ Destekli Araç Kasko Değeri Sorgulama</title>
+  <meta name="description" content="Aracınızın kasko değerini yapay zekâ destekli KaskoAI ile kolayca bulun. Marka, model ve model yılı bilgilerini girin; doğru kasko değeri ve kasko koduna ulaşın.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kasko-ai.vercel.app/kasko">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="KaskoAI">
+  <meta property="og:title" content="KaskoAI | Yapay Zekâ Destekli Araç Kasko Değeri Sorgulama">
+  <meta property="og:description" content="Aracınızın kasko değerini yapay zekâ destekli KaskoAI ile kolayca bulun. Marka, model ve model yılı bilgilerini girin; doğru kasko değeri ve kasko koduna ulaşın.">
+  <meta property="og:url" content="https://kasko-ai.vercel.app/kasko">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KaskoAI | Yapay Zekâ Destekli Araç Kasko Değeri Sorgulama">
+  <meta name="twitter:description" content="Aracınızın kasko değerini yapay zekâ destekli KaskoAI ile kolayca bulun. Marka, model ve model yılı bilgilerini girin; doğru kasko değeri ve kasko koduna ulaşın.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "KaskoAI",
+  "url": "https://kasko-ai.vercel.app/",
+  "description": "Aracınızın kasko değerini yapay zekâ destekli KaskoAI ile kolayca bulun. Marka, model ve model yılı bilgilerini girin; doğru kasko değeri ve kasko koduna ulaşın.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "tr-TR",
+  "creator": {
+    "@type": "Person",
+    "name": "Özkan HASKILIÇ"
+  }
+}
+  </script>
+  <meta name="google-site-verification" content="MuRal62ysE1aVWPVQdPdZJ9eGF5M3csfumvomjy4lzk" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand brand-link" href="/" aria-label="Ana menüye dön">
+        <div class="brand-mark">K</div>
+        <div class="brand-copy">
+          <div class="brand-name">Kasko<span>AI</span></div>
+          <div class="brand-sub">Yapay zekâ destekli kasko asistanı</div>
+        </div>
+      </a>
+      <a class="home-pill" href="/">⌂ Ana Menü</a>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow">KASKO DEĞER ASİSTANI</div>
+      <h1>Aracınızın kasko değerini <span>kolayca bulun.</span></h1>
+      <p>Marka, model ve yılı yazın. Gerekli ayrıntıları size sorarak listedeki doğru aracı birlikte bulalım.</p>
+    </section>
+
+    <section class="chat-card" aria-label="Kasko değer asistanı">
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="message assistant">
+          <div class="avatar">K</div>
+          <div class="bubble">
+            Merhaba 👋 Aracınızın kasko değerini bulalım.<br>
+            <strong>Model yılı ve marka/modeli</strong> yazarak başlayabilirsiniz.
+            <div class="mini-example">Örn. “2021 model Passat”</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="typing" class="typing hidden">
+        <div class="typing-dots"><span></span><span></span><span></span></div>
+        <small>Uygun kayıtları karşılaştırıyorum…</small>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="composer">
+          <textarea id="input" rows="1" enterkeyhint="send"
+            placeholder="Örn. 2021 model Passat"></textarea>
+          <button id="send" type="button" aria-label="Ara">
+            <span>Bul</span><b>↗</b>
+          </button>
+        </div>
+        <div class="examples" aria-label="Örnek aramalar">
+          <button data-example="2021 model Passat">2021 Passat</button>
+          <button data-example="2022 BMW 320i">2022 BMW 320i</button>
+          <button data-example="2019 Renault Clio">2019 Renault Clio</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="signature">
+      <span>Tasarlayan &amp; Hazırlayan</span>
+      <strong>Başkatip Özkan HASKILIÇ</strong>
+    </footer>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

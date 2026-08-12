@@ -1,0 +1,213 @@
+
+:root{
+  --bg:#06101d;
+  --panel:#0b1a2c;
+  --panel2:#102238;
+  --line:rgba(255,255,255,.09);
+  --text:#f4f8ff;
+  --muted:#9eb0c7;
+  --accent:#64d7ff;
+  --accent2:#9581ff;
+  --success:#57e1ac;
+  --danger:#ff8396;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100dvh;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+button,input{font:inherit}
+a{text-decoration:none;color:inherit}
+button{-webkit-tap-highlight-color:transparent}
+.hidden{display:none!important}
+.portal-body{
+  background:
+    radial-gradient(circle at 92% 8%,rgba(32,160,205,.18),transparent 31%),
+    radial-gradient(circle at 4% 92%,rgba(112,76,235,.18),transparent 33%),
+    var(--bg);
+  overflow-x:hidden;
+}
+.portal-orb{position:fixed;border-radius:999px;filter:blur(90px);opacity:.16;pointer-events:none;z-index:-1}
+.portal-orb-a{width:340px;height:340px;background:#18b9e7;right:-150px;top:-130px}
+.portal-orb-b{width:380px;height:380px;background:#7557ff;left:-180px;bottom:-170px}
+.portal-shell{width:min(1000px,calc(100% - 28px));margin:0 auto;padding:22px 0 max(24px,env(safe-area-inset-bottom))}
+.portal-header{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.portal-brand{display:flex;align-items:center;gap:11px;min-width:0}
+.portal-brand-link{border-radius:14px}
+.portal-logo{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;flex:none;
+  font-weight:900;color:#06101d;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 32px rgba(100,215,255,.14)
+}
+.portal-brand-name{font-size:17px;font-weight:800;letter-spacing:-.5px}.portal-brand-name span{color:var(--accent)}
+.portal-brand-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.portal-badge,.portal-home-link{
+  border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:999px;
+  padding:8px 11px;color:#bac8d9;font-size:11px;white-space:nowrap
+}
+.portal-badge span{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 9px var(--success);margin-right:6px}
+.portal-eyebrow{font-size:10px;font-weight:800;letter-spacing:1.8px;color:var(--accent);margin-bottom:12px}
+.home-hero{text-align:center;padding:70px 10px 34px}
+.home-hero h1,.sale-intro h1{font-size:clamp(38px,7vw,66px);line-height:1.02;letter-spacing:-3px;margin:0;font-weight:900}
+.home-hero h1 span,.sale-intro h1 span{background:linear-gradient(90deg,var(--accent),#b4a2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-hero p,.sale-intro p{max-width:690px;margin:18px auto 0;color:var(--muted);line-height:1.65;font-size:14px}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.menu-card{
+  min-height:390px;position:relative;display:flex;flex-direction:column;padding:27px;overflow:hidden;
+  border:1px solid var(--line);border-radius:28px;background:rgba(9,24,41,.86);
+  box-shadow:0 28px 70px rgba(0,0,0,.25);transition:transform .18s ease,border-color .18s ease
+}
+.menu-card:hover{transform:translateY(-3px);border-color:rgba(100,215,255,.28)}
+.menu-card:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;filter:blur(50px);opacity:.13;right:-90px;top:-70px}
+.sale-card:before{background:#67dcff}.kasko-card:before{background:#a487ff}
+.menu-icon{
+  width:62px;height:62px;border-radius:20px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(100,215,255,.17),rgba(149,129,255,.15));
+  border:1px solid rgba(255,255,255,.1);margin-bottom:auto
+}
+.menu-icon svg{width:31px;height:31px;fill:none;stroke:#8ce4ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.menu-copy{padding:36px 0 25px}
+.menu-kicker,.small-kicker{font-size:9px;letter-spacing:1.5px;font-weight:800;color:var(--accent)}
+.menu-copy h2{font-size:30px;line-height:1.08;letter-spacing:-1.3px;margin:9px 0 12px}
+.menu-copy p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+.menu-action{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid var(--line);font-size:12px;font-weight:800}
+.menu-action span{font-size:21px;color:var(--accent)}
+.portal-signature{display:flex;justify-content:center;align-items:center;gap:8px;padding:15px 8px 0;color:#61758e;font-size:9px}
+.portal-signature strong{color:#8ea2ba;font-size:10px}
+
+/* Sale */
+.sale-shell{width:min(1050px,calc(100% - 28px))}
+.sale-intro{text-align:center;padding:52px 10px 28px}
+.sale-intro h1{font-size:clamp(34px,6vw,58px)}
+.sale-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:18px;align-items:start}
+.glass-card{
+  border:1px solid var(--line);border-radius:25px;background:rgba(9,24,41,.88);
+  backdrop-filter:blur(20px);box-shadow:0 28px 70px rgba(0,0,0,.25);padding:24px
+}
+.card-title-row,.result-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:23px}
+.card-title-row h2,.result-head h2{margin:5px 0 0;font-size:22px;letter-spacing:-.8px}
+.calculator-badge,.result-check{
+  width:43px;height:43px;border-radius:14px;display:grid;place-items:center;font-size:21px;font-weight:900;
+  color:#06101d;background:linear-gradient(135deg,var(--accent),var(--accent2))
+}
+.result-check{background:linear-gradient(135deg,var(--success),var(--accent))}
+.field-block{margin-bottom:18px}
+.field-block label{display:block;font-size:12px;font-weight:700;color:#dfe8f5;margin-bottom:8px}
+.field-label-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.money-input{
+  height:57px;display:flex;align-items:center;border:1px solid var(--line);border-radius:16px;
+  background:rgba(0,0,0,.16);overflow:hidden;transition:border-color .16s
+}
+.money-input:focus-within{border-color:rgba(100,215,255,.48);box-shadow:0 0 0 3px rgba(100,215,255,.05)}
+.money-input span{padding-left:16px;color:#6ddfff;font-size:19px;font-weight:800}
+.money-input input{width:100%;height:100%;border:0;outline:0;background:transparent;color:var(--text);padding:0 15px;font-size:17px;font-weight:700}
+.money-input input::placeholder{color:#687b92;font-weight:500}
+.mini-ai-button{
+  border:1px solid rgba(100,215,255,.24);background:rgba(100,215,255,.08);color:#8be4ff;
+  border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;cursor:pointer
+}
+.selected-kasko{
+  margin-top:9px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1px solid rgba(87,225,172,.18);background:rgba(87,225,172,.06);border-radius:13px
+}
+.selected-kasko div{display:flex;align-items:center;gap:8px}.selected-kasko small{font-size:8px;color:var(--success);font-weight:800;letter-spacing:.7px}.selected-kasko strong{font-size:12px}
+.selected-kasko>span{font-size:9px;color:#8fa3bb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%}
+.check-card{
+  display:flex!important;align-items:flex-start;gap:11px;padding:14px;border:1px solid var(--line);border-radius:16px;
+  background:rgba(255,255,255,.025);cursor:pointer;margin:4px 0 18px!important
+}
+.check-card input{position:absolute;opacity:0;pointer-events:none}
+.check-ui{width:21px;height:21px;border:1px solid rgba(255,255,255,.18);border-radius:7px;flex:none;position:relative;margin-top:1px}
+.check-card input:checked+.check-ui{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent}
+.check-card input:checked+.check-ui:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#06101d;font-weight:900;font-size:13px}
+.check-card strong{display:block;font-size:11px;color:#dfe8f5}.check-card small{display:block;color:#8092a9;font-size:9px;margin-top:3px;line-height:1.4}
+.calculate-button{
+  width:100%;height:55px;border:0;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#06101d;font-weight:900;display:flex;align-items:center;justify-content:space-between;padding:0 18px;cursor:pointer
+}
+.calculate-button b{font-size:21px}.calculate-button:disabled{opacity:.6;cursor:wait}
+.form-error{margin:-5px 0 13px;padding:10px 12px;border-radius:12px;background:rgba(255,131,150,.08);border:1px solid rgba(255,131,150,.18);color:#ff9bad;font-size:10px;line-height:1.45}
+.grand-total{
+  padding:21px;border:1px solid rgba(87,225,172,.23);border-radius:18px;
+  background:linear-gradient(135deg,rgba(87,225,172,.1),rgba(100,215,255,.08));margin-bottom:15px
+}
+.grand-total span{display:block;color:var(--success);font-size:9px;font-weight:800;letter-spacing:1px}
+.grand-total strong{display:block;font-size:34px;letter-spacing:-1.6px;margin-top:6px}
+.fee-list{border:1px solid var(--line);border-radius:17px;padding:5px 14px}
+.fee-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:11px}
+.fee-row:last-child{border-bottom:0}.fee-row span{color:#93a6bd}.fee-row strong{font-size:11px;text-align:right}
+.highlight-row span,.highlight-row strong{color:#dff8ff}
+.result-note{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(100,215,255,.06);border:1px solid rgba(100,215,255,.14);color:#8ea4bd;font-size:9px;line-height:1.5}
+.secondary-button{width:100%;height:45px;margin-top:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);color:#b7c5d7;font-weight:700;cursor:pointer}
+
+/* Kasko picker modal */
+.kasko-modal{position:fixed;inset:0;z-index:1000;background:rgba(1,7,14,.78);backdrop-filter:blur(9px);display:grid;place-items:center;padding:14px}
+.kasko-modal-panel{
+  width:min(760px,100%);height:min(820px,94dvh);border:1px solid rgba(255,255,255,.13);
+  border-radius:24px;background:#07111f;box-shadow:0 35px 110px rgba(0,0,0,.5);overflow:hidden;display:flex;flex-direction:column
+}
+.kasko-modal-head{height:58px;flex:none;padding:10px 14px 10px 17px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.kasko-modal-head small{display:block;color:var(--accent);font-size:8px;font-weight:800;letter-spacing:1px}
+.kasko-modal-head strong{display:block;font-size:13px;margin-top:2px}
+.kasko-modal-head button{width:36px;height:36px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04);color:#dce6f3;font-size:25px;line-height:1;cursor:pointer}
+.kasko-modal iframe{width:100%;height:100%;border:0;background:#06101d}
+
+@media(max-width:760px){
+  .portal-shell{width:100%;padding:max(10px,env(safe-area-inset-top)) 10px max(8px,env(safe-area-inset-bottom))}
+  .portal-header{padding:0 3px}
+  .portal-logo{width:37px;height:37px;border-radius:12px}
+  .portal-brand-name{font-size:15px}.portal-brand-sub{font-size:9px}
+  .portal-badge,.portal-home-link{font-size:9px;padding:7px 9px}
+  .home-shell{min-height:100dvh;display:flex;flex-direction:column}
+  .home-hero{padding:30px 10px 20px}
+  .home-hero h1{font-size:31px;letter-spacing:-1.8px}
+  .home-hero p{font-size:11px;line-height:1.55;margin-top:10px}
+  .portal-eyebrow{font-size:8px;margin-bottom:8px}
+  .menu-grid{grid-template-columns:1fr;gap:11px;flex:1;min-height:0}
+  .menu-card{min-height:0;padding:18px 18px 16px;border-radius:21px}
+  .menu-icon{width:48px;height:48px;border-radius:15px}
+  .menu-icon svg{width:25px;height:25px}
+  .menu-copy{padding:18px 0 14px}
+  .menu-copy h2{font-size:23px;margin:6px 0 7px}.menu-copy p{font-size:10px;line-height:1.45}
+  .menu-action{padding-top:11px;font-size:10px}.menu-action span{font-size:18px}
+  .portal-signature{flex-direction:column;gap:2px;padding:8px 4px 0;line-height:1.2}.portal-signature span{font-size:8px}.portal-signature strong{font-size:9px}
+
+  .sale-intro{padding:24px 8px 17px}.sale-intro h1{font-size:30px;letter-spacing:-1.8px}.sale-intro p{font-size:11px;margin-top:9px}
+  .sale-layout{grid-template-columns:1fr;gap:12px}.glass-card{padding:17px;border-radius:20px}
+  .card-title-row,.result-head{margin-bottom:17px}.card-title-row h2,.result-head h2{font-size:19px}
+  .calculator-badge,.result-check{width:38px;height:38px;border-radius:12px;font-size:18px}
+  .money-input{height:52px}.money-input input{font-size:16px}.field-block{margin-bottom:15px}
+  .field-label-row{align-items:flex-end}.field-block label{font-size:11px}.mini-ai-button{font-size:9px;padding:6px 8px}
+  .calculate-button{height:51px}.result-card{scroll-margin-top:10px}
+  .grand-total strong{font-size:29px}.fee-row{font-size:10px;padding:10px 0}.fee-row strong{font-size:10px}
+  .kasko-modal{padding:0}.kasko-modal-panel{width:100%;height:100dvh;border-radius:0;border:0}
+  .kasko-modal-head{padding-top:max(10px,env(safe-area-inset-top));height:calc(58px + env(safe-area-inset-top))}
+}
+
+
+/* FINAL 3.1 polish */
+.tariff-chip{
+  display:inline-flex;align-items:center;gap:6px;margin-top:15px;padding:7px 10px;
+  border:1px solid rgba(100,215,255,.16);border-radius:999px;background:rgba(100,215,255,.05);
+  color:#9fb8cd;font-size:9px;font-weight:700
+}
+.source-row strong{color:var(--accent)}
+.modal-subtitle{display:block;color:#778ba4;font-size:8px;margin-top:2px;font-weight:500}
+.menu-card:active,.calculate-button:active,.mini-ai-button:active,.secondary-button:active{transform:scale(.992)}
+.calculate-button{transition:transform .14s ease,opacity .14s ease,filter .14s ease}
+.calculate-button:hover{filter:brightness(1.04)}
+.mini-ai-button{transition:background .14s ease,border-color .14s ease,transform .14s ease}
+.mini-ai-button:hover{background:rgba(100,215,255,.12);border-color:rgba(100,215,255,.34)}
+.portal-home-link,.home-pill{transition:background .14s ease,border-color .14s ease}
+.portal-home-link:hover,.home-pill:hover{background:rgba(255,255,255,.065);border-color:rgba(255,255,255,.14)}
+.selected-kasko{animation:softIn .2s ease}
+.result-card:not(.hidden){animation:softIn .24s ease}
+@keyframes softIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@media(max-width:760px){
+  .tariff-chip{font-size:8px;margin-top:11px}
+  .sale-layout{padding-bottom:2px}
+  .selected-kasko{align-items:flex-start}
+  .selected-kasko>span{max-width:58%;white-space:normal;text-align:right;line-height:1.35}
+  .modal-subtitle{font-size:7.5px}
+}

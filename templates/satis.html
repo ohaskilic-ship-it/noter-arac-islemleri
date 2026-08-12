@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#06101d">
+  <title>Noter Araç Satış Ücreti Hesaplama | KaskoAI</title>
+  <meta name="description" content="Araç satış bedeli ve kasko değerine göre noter araç satış ve tescil ücretini hesaplayın. Kasko değerini KaskoAI ile otomatik bulun.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kasko-ai.vercel.app/satis">
+  <meta name="google-site-verification" content="MuRal62ysE1aVWPVQdPdZJ9eGF5M3csfumvomjy4lzk">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/portal.css">
+</head>
+<body class="portal-body sale-page">
+  <div class="portal-orb portal-orb-a"></div>
+  <div class="portal-orb portal-orb-b"></div>
+
+  <main class="portal-shell sale-shell">
+    <header class="portal-header">
+      <a class="portal-brand portal-brand-link" href="/">
+        <div class="portal-logo">N</div>
+        <div>
+          <div class="portal-brand-name">Noter <span>Araç İşlemleri</span></div>
+          <div class="portal-brand-sub">Araç satış ücreti hesaplama</div>
+        </div>
+      </a>
+      <a class="portal-home-link" href="/">⌂ Ana Menü</a>
+    </header>
+
+    <section class="sale-intro">
+      <div class="portal-eyebrow">NOTER ARAÇ SATIŞI</div>
+      <h1>Satış ücretini <span>anında hesaplayın.</span></h1>
+      <p>Satış bedeli ile kasko bedelinden yüksek olan tutar harç matrahı olarak esas alınır.</p>
+      <div class="tariff-chip">2026 tarifesi • Kasko değeri tek dokunuşla aktarılır</div>
+    </section>
+
+    <section class="sale-layout">
+      <div class="glass-card sale-form-card">
+        <div class="card-title-row">
+          <div>
+            <div class="small-kicker">{{ 2026 }} ÜCRET PARAMETRELERİ</div>
+            <h2>Araç Bilgileri</h2>
+          </div>
+          <div class="calculator-badge">₺</div>
+        </div>
+
+        <div class="field-block">
+          <label for="satisBedeli">Araç Satış Bedeli</label>
+          <div class="money-input">
+            <span>₺</span>
+            <input id="satisBedeli" inputmode="numeric" autocomplete="off" aria-label="Araç satış bedeli" placeholder="Örn. 1.250.000">
+          </div>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label-row">
+            <label for="kaskoBedeli">Kasko Bedeli</label>
+            <button class="mini-ai-button" type="button" id="openKasko">
+              ✦ KaskoAI ile Bul
+            </button>
+          </div>
+          <div class="money-input">
+            <span>₺</span>
+            <input id="kaskoBedeli" inputmode="numeric" autocomplete="off" aria-label="Kasko bedeli" placeholder="Örn. 1.654.030">
+          </div>
+          <div id="selectedKasko" class="selected-kasko hidden">
+            <div>
+              <small>KASKO KODU</small>
+              <strong id="selectedKaskoCode">—</strong>
+            </div>
+            <span id="selectedVehicle">KaskoAI ile bulundu</span>
+          </div>
+        </div>
+
+        <label class="check-card" for="yetkiBelgesi">
+          <input type="checkbox" id="yetkiBelgesi">
+          <span class="check-ui"></span>
+          <span>
+            <strong>Alıcının Ticaret Bakanlığı Yetki Belgesi Var</strong>
+            <small>İşaretlendiğinde noter harcı uygulanmaz.</small>
+          </span>
+        </label>
+
+        <div id="formError" class="form-error hidden"></div>
+
+        <button class="calculate-button" type="button" id="hesapla">
+          <span>Ücreti Hesapla</span>
+          <b>→</b>
+        </button>
+      </div>
+
+      <div class="glass-card result-card hidden" id="sonucAlani">
+        <div class="result-head">
+          <div>
+            <div class="small-kicker">TAHAKKUK DÖKÜMÜ</div>
+            <h2>Hesaplama Sonucu</h2>
+          </div>
+          <div class="result-check">✓</div>
+        </div>
+
+        <div class="grand-total">
+          <span>GENEL TOPLAM</span>
+          <strong id="resToplam">₺0,00</strong>
+        </div>
+
+        <div class="fee-list">
+          <div class="fee-row highlight-row">
+            <span>Harç Matrahı</span><strong id="resMatrah">₺0,00</strong>
+          </div>
+          <div class="fee-row source-row">
+            <span>Matrahın Esası</span><strong id="resMatrahKaynagi">—</strong>
+          </div>
+          <div class="fee-row">
+            <span>A. Noter Harcı</span><strong id="resHarc">₺0,00</strong>
+          </div>
+          <div class="fee-row">
+            <span>Noter Ücreti</span><strong id="resNoter">₺0,00</strong>
+          </div>
+          <div class="fee-row">
+            <span>ARTES Tescil Ücreti</span><strong id="resArtes">₺0,00</strong>
+          </div>
+          <div class="fee-row">
+            <span>KDV (%20)</span><strong id="resKdv">₺0,00</strong>
+          </div>
+          <div class="fee-row">
+            <span>Darphane T.B. Bsm.Bd.</span><strong id="resDarphane">₺0,00</strong>
+          </div>
+          <div class="fee-row">
+            <span>Tescil Belge Bedeli</span><strong id="resTescil">₺0,00</strong>
+          </div>
+        </div>
+
+        <div id="yetkiNote" class="result-note hidden">
+          Yetki belgesi seçildiği için noter harcı 0,00 TL olarak hesaplandı.
+        </div>
+
+        <button class="secondary-button" type="button" id="yeniHesap">Yeni Hesaplama</button>
+      </div>
+    </section>
+
+    <footer class="portal-signature">
+      <span>Tasarlayan &amp; Hazırlayan</span>
+      <strong>Başkatip Özkan HASKILIÇ</strong>
+    </footer>
+  </main>
+
+  <div class="kasko-modal hidden" id="kaskoModal" role="dialog" aria-modal="true" aria-label="KaskoAI">
+    <div class="kasko-modal-panel">
+      <div class="kasko-modal-head">
+        <div>
+          <small>KASKOAI</small>
+          <strong>Kasko Değerini Bul</strong>
+          <span class="modal-subtitle">Bulduğunuz değer satış hesabına otomatik aktarılır.</span>
+        </div>
+        <button id="closeKasko" type="button" aria-label="Kapat">×</button>
+      </div>
+      <iframe id="kaskoFrame" title="KaskoAI kasko değer bulma"></iframe>
+    </div>
+  </div>
+
+  <script src="/static/satis.js"></script>
+</body>
+</html>
